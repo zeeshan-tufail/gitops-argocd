@@ -1,0 +1,4 @@
+---
+name: gitops-argocd
+version: 1.0.0
+apiVersion: v2

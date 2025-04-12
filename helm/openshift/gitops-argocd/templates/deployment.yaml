@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/vcs-uri: <<unknown>>
+    app.quarkus.io/quarkus-version: 3.15.4.redhat-00001
+    app.quarkus.io/build-timestamp: 2025-04-12 - 06:50:03 +0000
+  labels:
+    app.kubernetes.io/managed-by: quarkus
+    app.openshift.io/runtime: quarkus
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/name: gitops-argocd
+  name: gitops-argocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/version: 1.0.0
+      app.kubernetes.io/name: gitops-argocd
+  template:
+    metadata:
+      annotations:
+        alpha.image.policy.openshift.io/resolve-names: '*'
+        app.openshift.io/vcs-uri: <<unknown>>
+        app.quarkus.io/quarkus-version: 3.15.4.redhat-00001
+        app.quarkus.io/build-timestamp: 2025-04-12 - 06:50:03 +0000
+      labels:
+        app.kubernetes.io/managed-by: quarkus
+        app.openshift.io/runtime: quarkus
+        app.kubernetes.io/version: 1.0.0
+        app.kubernetes.io/name: gitops-argocd
+    spec:
+      containers:
+        - image: {{ .Values.app.image }}
+          imagePullPolicy: Always
+          name: gitops-argocd
+          ports:
+            - containerPort: {{ .Values.app.ports.http }}
+              name: http
+              protocol: TCP
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: '256Mi '
+            requests:
+              cpu: "0.01"
+              memory: 128Mi
+      serviceAccountName: gitops-argocd

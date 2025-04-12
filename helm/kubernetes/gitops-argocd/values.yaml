@@ -1,0 +1,5 @@
+---
+app:
+  image: quay.io/shani1/gitops-argocd:1.0.0
+  ports:
+    http: 8080
