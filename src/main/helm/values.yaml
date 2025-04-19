@@ -1,13 +1,9 @@
 ---
 app:
-  envs:
-    POSTGRES_PASSWORD: supersecret
-    POSTGRES_URL: jdbc:postgresql://demo-db:5432/demo_database
-    POSTGRES_USERNAME: user
-  image: quay.io/shani1/gitops-argocd:1.0.1
   metadata: gitops-argocd-1.0.1
-  ports:
-    http: 8080
+  replicas: 1
+  envs:
+    POSTGRES_URL: jdbc:postgresql://demo-db:5432/demo_database
   postgresql:
     auth:
       database: demo_database
@@ -29,4 +25,3 @@ app:
       enabled: false
       securityContext:
         runAsUser: auto
-  replicas: 1

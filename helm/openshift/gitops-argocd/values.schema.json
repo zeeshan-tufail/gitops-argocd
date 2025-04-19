@@ -8,6 +8,109 @@
           "description" : "The container image to use.",
           "type" : "string"
         },
+        "metadata" : {
+          "type" : "string"
+        },
+        "postgresql" : {
+          "type" : "object",
+          "properties" : {
+            "auth" : {
+              "type" : "object",
+              "properties" : {
+                "database" : {
+                  "type" : "string"
+                },
+                "password" : {
+                  "type" : "string"
+                },
+                "username" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "securityContext" : {
+              "type" : "object",
+              "properties" : {
+                "enabled" : {
+                  "type" : "boolean"
+                }
+              }
+            },
+            "volumePermissions" : {
+              "type" : "object",
+              "properties" : {
+                "securityContext" : {
+                  "type" : "object",
+                  "properties" : {
+                    "runAsUser" : {
+                      "type" : "string"
+                    }
+                  }
+                },
+                "enabled" : {
+                  "type" : "boolean"
+                }
+              }
+            },
+            "shmVolume" : {
+              "type" : "object",
+              "properties" : {
+                "chmod" : {
+                  "type" : "object",
+                  "properties" : {
+                    "enabled" : {
+                      "type" : "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "primary" : {
+              "type" : "object",
+              "properties" : {
+                "podSecurityContext" : {
+                  "type" : "object",
+                  "properties" : {
+                    "fsGroup" : {
+                      "type" : "string"
+                    },
+                    "enabled" : {
+                      "type" : "boolean"
+                    }
+                  }
+                },
+                "containerSecurityContext" : {
+                  "type" : "object",
+                  "properties" : {
+                    "runAsUser" : {
+                      "type" : "string"
+                    },
+                    "enabled" : {
+                      "type" : "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "replicas" : {
+          "type" : "integer"
+        },
+        "envs" : {
+          "type" : "object",
+          "properties" : {
+            "POSTGRES_URL" : {
+              "type" : "string"
+            },
+            "POSTGRES_USERNAME" : {
+              "type" : "string"
+            },
+            "POSTGRES_PASSWORD" : {
+              "type" : "string"
+            }
+          }
+        },
         "ports" : {
           "type" : "object",
           "properties" : {

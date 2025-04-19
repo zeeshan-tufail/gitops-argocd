@@ -3,12 +3,14 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   annotations:
-    app.openshift.io/vcs-uri: <<unknown>>
+    app.openshift.io/vcs-uri: https://github.com/zeeshan-tufail/gitops-argocd.git
     app.quarkus.io/quarkus-version: 3.15.4.redhat-00001
-    app.quarkus.io/build-timestamp: 2025-04-12 - 06:50:03 +0000
+    app.quarkus.io/commit-id: d09583a1ed16e7d1e21888231923daa83bfccc31
+    app.quarkus.io/vcs-uri: https://github.com/zeeshan-tufail/gitops-argocd.git
+    app.quarkus.io/build-timestamp: 2025-04-19 - 11:23:08 +0000
   labels:
     app.kubernetes.io/name: gitops-argocd
-    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/version: 1.0.1
     app.kubernetes.io/managed-by: quarkus
     app.openshift.io/runtime: quarkus
   name: gitops-argocd

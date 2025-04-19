@@ -1,4 +1,9 @@
 ---
 name: gitops-argocd
-version: 1.0.0
+version: 1.0.1
 apiVersion: v2
+dependencies:
+  - name: postgressql
+    version: "14"
+    repository: https://charts.bitnami.com/bitnami
+    alias: postgressql
